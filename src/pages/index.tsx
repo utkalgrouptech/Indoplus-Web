@@ -1,5 +1,4 @@
 // pages/index.js
-import { useState, useEffect } from 'react';
 import MainLayouts from '@/Layouts/MainLayout'
 import { ArrowRight, Play, Code, Zap, Shield, Monitor, Smartphone, Palette, BarChart3, Search, Users, Mail, MapPin, Phone } from "lucide-react"
 import { motion } from "framer-motion"
