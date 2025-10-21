@@ -2,7 +2,7 @@
 import { contact1 } from '@/assest/Contact'
 import Commonbreadcrumb from '@/Components/Commoncomponent/Commonbreadcrumb'
 import MainLayouts from '@/Layouts/MainLayout'
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEvent,useState } from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Twitter, Facebook, Linkedin, Github } from 'lucide-react'
 
@@ -19,14 +19,14 @@ export default function Contact() {
     message: ''
   })
 
-  const handleChange = (e: any) => {
+  const handleChange = ( e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('Form submitted:', formData)
     alert('Thank you for your message! We will get back to you soon.')

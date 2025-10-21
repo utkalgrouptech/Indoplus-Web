@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { app, cloud, social, uiux, web } from "@/assest/Home";
 import { Service8 } from "@/assest/Services";
 import Commonbreadcrumb from "@/Components/Commoncomponent/Commonbreadcrumb";
 import MainLayouts from "@/Layouts/MainLayout";
+import Link from "next/link";
 
 const data = {
   cont1: "Service Details",
@@ -96,11 +97,9 @@ export const services = [
 
 export default function Services() {
   const [activeService, setActiveService] = useState("01");
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+
 
   return (
     <MainLayouts title="Services | IndoPlus">
@@ -123,7 +122,7 @@ export default function Services() {
           </div>
           
           <div className="flex flex-col lg:flex-row gap-6">
-            {services.map((service, index) => {
+            {services.map((service) => {
               const isActive = service.id === activeService;
 
               return (
@@ -370,9 +369,9 @@ export default function Services() {
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p className="max-w-2xl mx-auto mb-8 text-lg opacity-90">
-            Let's collaborate to create innovative solutions that drive your business forward.
+            Let&apos;s collaborate to create innovative solutions that drive your business forward.
           </p>
-          <a
+          <Link 
             href="/contact"
             className="inline-flex items-center bg-white text-red-600 font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
@@ -380,7 +379,7 @@ export default function Services() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </a>
+          </Link >
         </div>
       </section>
     </MainLayouts>

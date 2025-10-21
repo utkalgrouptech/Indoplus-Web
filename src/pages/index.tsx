@@ -6,16 +6,7 @@ import { motion } from "framer-motion"
 import { ppJigyanshu, ppShubhashree, team2 } from '@/assest/Team';
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const team = [
     {
@@ -359,7 +350,7 @@ export default function Home() {
                 Our <span className="bg-gradient-to-r from-red-400 to-cyan-400 bg-clip-text text-transparent">Work</span>
               </h2>
               <p className="text-gray-400 text-xl max-w-3xl mx-auto">
-                Discover how we've helped businesses transform their operations with cutting-edge technology
+                Discover how we&apos;ve helped businesses transform their operations with cutting-edge technology
               </p>
             </motion.div>
 
@@ -495,7 +486,7 @@ export default function Home() {
 
                   {/* Quote */}
                   <p className="text-gray-300 text-lg italic mb-8 leading-relaxed">
-                    "{testimonial.feedback}"
+                    &quot;{testimonial.feedback}&quot;
                   </p>
 
                   {/* Client Info */}
@@ -674,7 +665,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
                   <p className="text-gray-400 mb-8">
-                    We're here to help and answer any questions you might have. We look forward to hearing from you.
+                    We&apos;re here to help and answer any questions you might have. We look forward to hearing from you.
                   </p>
                 </div>
 

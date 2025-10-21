@@ -1,6 +1,7 @@
 import { about1 } from "@/assest/About";
 import Commonbreadcrumb from "@/Components/Commoncomponent/Commonbreadcrumb";
 import MainLayouts from "@/Layouts/MainLayout";
+import Link from "next/link";
 import React from "react";
 
 const data = {
@@ -277,11 +278,11 @@ export default function About() {
           </svg>
         </div>
         <div className="container mx-auto px-6 relative z-10">
-          <h2 className="text-4xl font-bold mb-6">Let's Co-create the Digital Future</h2>
+          <h2 className="text-4xl font-bold mb-6">Let&apos;s Co-create the Digital Future</h2>
           <p className="max-w-2xl mx-auto mb-8 text-lg opacity-90">
             Partner with IndoPlus to harness transformative technology that propels your business forward.
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center bg-white text-red-600 font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
@@ -289,7 +290,7 @@ export default function About() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
     </MainLayouts>

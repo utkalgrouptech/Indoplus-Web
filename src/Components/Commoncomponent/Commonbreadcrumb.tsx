@@ -1,5 +1,6 @@
 import React from "react";
 import { Home } from "lucide-react"; // using lucide-react icons (modern, lightweight)
+import Link from "next/link";
 
 type Prop = {
   data: {
@@ -26,18 +27,18 @@ export default function CommonBreadcrumb({ data, img, path }: Prop) {
         {/* Breadcrumb navigation */}
         {path && path.length > 0 && (
           <nav className="flex items-center justify-center space-x-2 text-gray-300 mb-4 text-sm md:text-base">
-            <a href="/" className="flex items-center gap-1 hover:text-white transition">
+            <Link href="/" className="flex items-center gap-1 hover:text-white transition">
               <Home size={18} /> Home
-            </a>
+            </Link>
             {path.map((p, i) => (
               <React.Fragment key={i}>
                 <span className="text-gray-400">/</span>
-                <a
+                <Link
                   href={p.href}
                   className="hover:text-white transition"
                 >
                   {p.name}
-                </a>
+                </Link>
               </React.Fragment>
             ))}
           </nav>
