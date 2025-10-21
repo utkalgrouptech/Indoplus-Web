@@ -1,30 +1,56 @@
 import React from "react";
+import { Home } from "lucide-react"; // using lucide-react icons (modern, lightweight)
 
 type Prop = {
   data: {
     cont1: string;
-    cont2?: string; // Optional if you want to add more content later
+    cont2?: string; // Subtitle or extra description
   };
   img: string;
+  path?: { name: string; href: string }[]; // Breadcrumb trail
 };
 
-export default function Commonbreadcrumb({ data, img }: Prop) {
+export default function CommonBreadcrumb({ data, img, path }: Prop) {
   return (
-    <section className="lg:h-screen h-96 relative">
-      {/* Background Image */}
+    <section className="relative h-[50vh] lg:h-[60vh] flex items-center justify-center">
+      {/* Background with gradient overlay */}
       <div
-        className="w-full h-full absolute inset-0 bg-cover bg-center bg-black bg-opacity-50"
-        style={{
-          backgroundImage: `url(${img})`,
-        }}
-      />
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${img})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+      </div>
+
       {/* Content */}
-      <div className="relative h-full flex flex-col justify-center items-center text-left p-6 lg:p-8 lg:justify-center lg:items-center lg:text-center">
-        <h1 className="text-white text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+      <div className="relative z-10 text-center px-6 max-w-4xl">
+        {/* Breadcrumb navigation */}
+        {path && path.length > 0 && (
+          <nav className="flex items-center justify-center space-x-2 text-gray-300 mb-4 text-sm md:text-base">
+            <a href="/" className="flex items-center gap-1 hover:text-white transition">
+              <Home size={18} /> Home
+            </a>
+            {path.map((p, i) => (
+              <React.Fragment key={i}>
+                <span className="text-gray-400">/</span>
+                <a
+                  href={p.href}
+                  className="hover:text-white transition"
+                >
+                  {p.name}
+                </a>
+              </React.Fragment>
+            ))}
+          </nav>
+        )}
+
+        {/* Title */}
+        <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight drop-shadow-lg animate-fade-in">
           {data.cont1}
         </h1>
+
+        {/* Subtitle */}
         {data.cont2 && (
-          <p className="text-white text-base md:text-lg lg:text-2xl">
+          <p className="mt-3 text-gray-200 text-base md:text-lg lg:text-xl animate-fade-in-up">
             {data.cont2}
           </p>
         )}
